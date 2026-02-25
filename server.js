@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const fetch = require("node-fetch");
 const { SYSTEM_PROMPT, KNOWLEDGE_BLOCK } = require("./prompts");
 
 dotenv.config();
@@ -46,4 +47,6 @@ app.post("/api/chat", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Anna-AI (Unified Meeting Identity) kör på port ${PORT}`));
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on port ${PORT}`);
+});
